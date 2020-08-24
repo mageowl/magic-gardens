@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-const ENEMY = preload("res://assets/objects/MobSpawner.tscn");
+const GHOST = preload("res://assets/objects/enemies/Ghost.tscn");
+const EMBENT = preload("res://assets/objects/enemies/Embent.tscn");
 const TREASURE_CHEST = preload("res://assets/objects/Chest.tscn")
 const GLARE = preload("res://assets/objects/Glare.tscn");
 
@@ -19,14 +20,25 @@ var room_types = [
 		"area": { "start": -INF, "end": 175 },
 		"size": [4, 8],
 		"objects": [
-			[ENEMY, Vector2(8, 8)]
+			[GHOST, Vector2(8, 8)]
 		]
 	},
 	{
-		# Empty
-		"area": { "start": -INF, "end": INF },
-		"size": [-INF, INF],
+		# Multiple enemies
+		"area": { "start": -50, "end": INF },
+		"size": [4, 8],
 		"objects": [
+			[GHOST, Vector2(8, 5)],
+			[GHOST, Vector2(5, 9)],
+			[GHOST, Vector2(11, 9)],
+		]
+	},
+	{
+		# Single enemy
+		"area": { "start": 100, "end": INF },
+		"size": [4, 8],
+		"objects": [
+			[EMBENT, Vector2(8, 8)]
 		]
 	}
 ]
@@ -56,6 +68,8 @@ func populate():
 		if append:
 			possible_types.append(type);
 	
+	if (possible_types.size() == 0): return;
+
 	var type = possible_types[randi() % possible_types.size()];
 
 	for object in type.objects:

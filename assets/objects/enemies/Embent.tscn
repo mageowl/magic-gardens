@@ -132,7 +132,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 25 )
 animation = "idle"
-frame = 0
+frame = 1
 
 [node name="CollisionShape" parent="." index="1"]
 position = Vector2( 0.5, 4 )

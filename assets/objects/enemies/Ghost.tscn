@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-frame = 1
+frame = 3
 
 [node name="CollisionShape" parent="." index="1"]
 position = Vector2( 0, 6 )

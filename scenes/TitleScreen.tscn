@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/art/gui/title_screen/background.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/gui/title_screen/title.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/gui/title_screen/options_button.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/gui/title_screen/play_button.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/theme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/gui/PearSoda.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/objects/Fade.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scripts/gui/menu_button.gd" type="Script" id=9]
+[ext_resource path="res://assets/scripts/gui/title_screen.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 1
+outline_color = Color( 0.14902, 0.168627, 0.266667, 1 )
+font_data = ExtResource( 7 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.238754
+margin_bottom = 0.238754
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -10.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="Menu"]
+margin_right = 288.0
+margin_bottom = 33.0
+texture = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
+margin_top = 41.0
+margin_right = 288.0
+margin_bottom = 134.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Play" type="Button" parent="Menu/Buttons"]
+margin_right = 288.0
+margin_bottom = 28.0
+icon = ExtResource( 5 )
+flat = true
+script = ExtResource( 9 )
+target_scene = "res://scenes/World.tscn"
+
+[node name="Options" type="Button" parent="Menu/Buttons"]
+margin_top = 28.0
+margin_right = 288.0
+margin_bottom = 57.0
+icon = ExtResource( 4 )
+flat = true
+script = ExtResource( 9 )
+target_scene = "res://scenes/GameOver.tscn"
+
+[node name="Version" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 114.0
+margin_right = 304.0
+margin_bottom = 150.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.894118, 0.231373, 0.266667, 1 )
+text = "Version 1.0"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" parent="." instance=ExtResource( 8 )]
+visible = false
+[connection signal="done" from="Fade" to="." method="_on_Fade_done"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/scripts/gui/cursor.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/gui/cursor.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float value;
+uniform vec4 white : hint_color;
+
+void fragment() {
+	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+	float avg = (screen_color.r + screen_color.g + screen_color.b) / 3.0;
+	vec4 texture_color = texture(TEXTURE, UV);
+	
+	if (avg < value && texture_color.a > 0.0) {
+		COLOR = white;
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 8 )
+shader_param/value = 0.2
+shader_param/white = Color( 0.752941, 0.796078, 0.862745, 1 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "spin",
+"speed": 10.0
+} ]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 128
+
+[node name="Cursor" type="Node2D" parent="."]
+pause_mode = 2
+z_index = 150
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Cursor"]
+material = SubResource( 9 )
+frames = SubResource( 7 )
+animation = "spin"
+frame = 5
+playing = true

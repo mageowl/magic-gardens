@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/art/spells/icons/lightning.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/gui/slot.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/gui/box.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/gui/PearSoda.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/scripts/gui/item_collect_gui.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 5 )
+
+[node name="ItemCollectGUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -40.0
+margin_right = 80.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="Box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Box/Container"]
+margin_top = 17.0
+margin_right = 160.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+text = "You got a"
+align = 1
+
+[node name="Slot" type="TextureRect" parent="Box/Container"]
+margin_left = 72.0
+margin_top = 31.0
+margin_right = 88.0
+margin_bottom = 47.0
+size_flags_horizontal = 4
+texture = ExtResource( 2 )
+
+[node name="Item" type="TextureRect" parent="Box/Container/Slot"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="Box/Container"]
+margin_top = 51.0
+margin_right = 160.0
+margin_bottom = 63.0
+theme = ExtResource( 4 )
+text = "Coin"
+align = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="Box"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.0
+margin_top = 3.0
+margin_right = 6.0
+margin_bottom = 11.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
+text = "Click anywhere to continue"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

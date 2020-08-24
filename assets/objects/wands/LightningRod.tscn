@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/spells/Lightning.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/bases/BaseWand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/art/wands/lightning_rod.png" type="Texture" id=3]
+[ext_resource path="res://assets/scripts/objects/wands/lightning_rod.gd" type="Script" id=4]
+
+[node name="Wand" instance=ExtResource( 2 )]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="Lightning" parent="Spells" index="0" instance=ExtResource( 1 )]

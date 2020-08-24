@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/tileset/grass.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="Node" type="Node"]
+
+[node name="Grass1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass2" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GrassFlower1" type="Sprite" parent="."]
+position = Vector2( 0, 16 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GrassFlower2" type="Sprite" parent="."]
+position = Vector2( 32, 16 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TallGrass" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Rocks" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rocks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocks/StaticBody2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )

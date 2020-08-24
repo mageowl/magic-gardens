@@ -1,0 +1,264 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/gui/PearSoda.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/gui/theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/art/gui/slot.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/wands/item/amateurs_wand.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/wands/item/crystal_staff.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/spells/icons/magic_shot.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/gui/spell_slot.png" type="Texture" id=8]
+[ext_resource path="res://assets/scripts/gui/wand_select_gui.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 2 )
+
+[node name="WandSelectGUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Container"]
+margin_right = 288.0
+margin_bottom = 12.0
+text = "Choose a wand:"
+align = 1
+
+[node name="Wands" type="HBoxContainer" parent="Container"]
+margin_top = 16.0
+margin_right = 288.0
+margin_bottom = 128.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="OldWand" type="Button" parent="Container/Wands"]
+margin_right = 142.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+
+[node name="Container" type="VBoxContainer" parent="Container/Wands/OldWand"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Old" type="Label" parent="Container/Wands/OldWand/Container"]
+margin_right = 124.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "Old"
+align = 1
+uppercase = true
+
+[node name="Slot" type="TextureRect" parent="Container/Wands/OldWand/Container"]
+margin_left = 54.0
+margin_top = 12.0
+margin_right = 70.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+texture = ExtResource( 4 )
+
+[node name="Wand" type="TextureRect" parent="Container/Wands/OldWand/Container/Slot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WandName" type="Label" parent="Container/Wands/OldWand/Container"]
+margin_top = 32.0
+margin_right = 124.0
+margin_bottom = 44.0
+text = "Amature's Wand"
+align = 1
+
+[node name="WandData" type="Label" parent="Container/Wands/OldWand/Container"]
+margin_top = 48.0
+margin_right = 124.0
+margin_bottom = 75.0
+text = "Charging Speed: 1 mpt
+Spell Capactiy: 1"
+
+[node name="Spells" type="HBoxContainer" parent="Container/Wands/OldWand/Container"]
+margin_top = 79.0
+margin_right = 124.0
+margin_bottom = 89.0
+alignment = 1
+
+[node name="Slot1" type="TextureRect" parent="Container/Wands/OldWand/Container/Spells"]
+margin_left = 50.0
+margin_right = 60.0
+margin_bottom = 10.0
+texture = ExtResource( 8 )
+
+[node name="Spell" type="TextureRect" parent="Container/Wands/OldWand/Container/Spells/Slot1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" type="TextureRect" parent="Container/Wands/OldWand/Container/Spells"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 10.0
+texture = ExtResource( 8 )
+
+[node name="Spell" type="TextureRect" parent="Container/Wands/OldWand/Container/Spells/Slot2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewWand" type="Button" parent="Container/Wands"]
+margin_left = 146.0
+margin_right = 288.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+
+[node name="Container" type="VBoxContainer" parent="Container/Wands/NewWand"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 10.0
+margin_right = -6.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New" type="Label" parent="Container/Wands/NewWand/Container"]
+margin_right = 128.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+text = "New"
+align = 1
+uppercase = true
+
+[node name="Slot" type="TextureRect" parent="Container/Wands/NewWand/Container"]
+margin_left = 56.0
+margin_top = 12.0
+margin_right = 72.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+texture = ExtResource( 4 )
+
+[node name="Wand" type="TextureRect" parent="Container/Wands/NewWand/Container/Slot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WandName" type="Label" parent="Container/Wands/NewWand/Container"]
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 44.0
+text = "Crystal Staff"
+align = 1
+
+[node name="WandData" type="Label" parent="Container/Wands/NewWand/Container"]
+margin_top = 48.0
+margin_right = 128.0
+margin_bottom = 75.0
+text = "Charging Speed: 4 mpt
+Spell Capactiy: 300"
+
+[node name="Spells" type="HBoxContainer" parent="Container/Wands/NewWand/Container"]
+margin_top = 79.0
+margin_right = 128.0
+margin_bottom = 89.0
+alignment = 1
+
+[node name="Slot1" type="TextureRect" parent="Container/Wands/NewWand/Container/Spells"]
+margin_left = 52.0
+margin_right = 62.0
+margin_bottom = 10.0
+texture = ExtResource( 8 )
+
+[node name="Spell" type="TextureRect" parent="Container/Wands/NewWand/Container/Spells/Slot1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" type="TextureRect" parent="Container/Wands/NewWand/Container/Spells"]
+margin_left = 66.0
+margin_right = 76.0
+margin_bottom = 10.0
+texture = ExtResource( 8 )
+
+[node name="Spell" type="TextureRect" parent="Container/Wands/NewWand/Container/Spells/Slot2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Container/Wands/OldWand" to="." method="_on_wand_selected" binds= [ 0 ]]
+[connection signal="pressed" from="Container/Wands/NewWand" to="." method="_on_wand_selected" binds= [ 1 ]]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/gui/WandGUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/gui/HealthBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scripts/gui.gd" type="Script" id=3]
+[ext_resource path="res://assets/objects/gui/GoldGUI.tscn" type="PackedScene" id=4]
+
+[node name="PlayerGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WandGUI" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -116.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 24.0
+
+[node name="LeftGUI" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 52.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" parent="LeftGUI" instance=ExtResource( 2 )]
+
+[node name="Gold" parent="LeftGUI" instance=ExtResource( 4 )]
+margin_top = 20.0
+margin_bottom = 20.0

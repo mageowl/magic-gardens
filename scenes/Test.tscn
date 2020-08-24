@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/MobSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tileset/grass.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/scripts/level.gd" type="Script" id=5]
+
+
+[node name="World" type="Node"]
+
+[node name="Level" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 65536, 5, 0, 65559, 5, 0, 131072, 5, 0, 131095, 5, 0, 196608, 5, 0, 196631, 5, 0, 262144, 5, 0, 262167, 5, 0, 327680, 5, 0, 327703, 5, 0, 393216, 5, 0, 393239, 5, 0, 458752, 5, 0, 458775, 5, 0, 524288, 5, 0, 524311, 5, 0, 589824, 5, 0, 589847, 5, 0, 655360, 5, 0, 655383, 5, 0, 720896, 5, 0, 720919, 5, 0, 786432, 5, 0, 786455, 5, 0, 851968, 5, 0, 851969, 5, 0, 851970, 5, 0, 851971, 5, 0, 851972, 5, 0, 851973, 5, 0, 851974, 5, 0, 851975, 5, 0, 851976, 5, 0, 851977, 5, 0, 851978, 5, 0, 851979, 5, 0, 851980, 5, 0, 851981, 5, 0, 851982, 5, 0, 851983, 5, 0, 851984, 5, 0, 851985, 5, 0, 851986, 5, 0, 851987, 5, 0, 851988, 5, 0, 851989, 5, 0, 851990, 5, 0, 851991, 5, 0 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies" type="Node" parent="Level"]
+
+[node name="MobSpawner" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 48 )
+
+[node name="MobSpawner2" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 176 )
+
+[node name="MobSpawner4" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 48 )
+
+[node name="MobSpawner3" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 176 )
+
+[node name="MobSpawner5" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 32, 32 )
+
+[node name="MobSpawner6" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 352, 32 )
+
+[node name="MobSpawner7" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 352, 192 )
+
+[node name="MobSpawner8" parent="Level/Enemies" instance=ExtResource( 2 )]
+position = Vector2( 32, 192 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 112 )

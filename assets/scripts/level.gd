@@ -117,7 +117,6 @@ func make_map():
 	for room in $Rooms.get_children():
 		# Carve Room
 		var size = (room.size / tile_size).floor();
-		var pos = Map.world_to_map(room.position);
 		var ul = (room.position / tile_size).floor() - size;
 
 		for x in range(2, size.x * 2 - 1):

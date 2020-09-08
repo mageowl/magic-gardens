@@ -6,5 +6,5 @@ func get_wand_data():
 		"name": "Lightning Rod",
 		"spells": 1,
 		"icon": "res://assets/art/wands/item/lightning_rod.png",
-		"recharge_speed": 4
+		"recharge_speed": 2
 	};

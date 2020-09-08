@@ -9,6 +9,7 @@ var health = 6;
 var gold = 0;
 var focused = true;
 var focus_next = false;
+var time = 0;
 
 func _ready():
 	get_node("/root/Global").read_player_data();
@@ -24,6 +25,7 @@ func damage(value):
 		get_tree().change_scene("res://scenes/GameOver.tscn");
 
 func _process(_delta):
+
 	## Flip
 	$Sprite.flip_h = get_global_mouse_position().x < get_position().x;
 

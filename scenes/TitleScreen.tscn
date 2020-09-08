@@ -75,17 +75,17 @@ margin_bottom = 57.0
 icon = ExtResource( 4 )
 flat = true
 script = ExtResource( 9 )
-target_scene = "res://scenes/GameOver.tscn"
+target_scene = "res://scenes/OptionsScreen.tscn"
 
 [node name="Version" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 114.0
-margin_right = 304.0
-margin_bottom = 150.0
+margin_left = 15.5654
+margin_top = 113.565
+margin_right = 303.565
+margin_bottom = 149.565
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.231373, 0.266667, 1 )
-text = "Version 1.0"
+text = "Version 1.1"
 valign = 2
 __meta__ = {
 "_edit_use_anchors_": false

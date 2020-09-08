@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/gui/theme.tres" type="Theme" id=1]
+
+[node name="OptionsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0980392, 0.129412, 0.223529, 1 )
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FancyGraphics" type="CheckBox" parent="Container"]
+margin_left = 114.0
+margin_top = 57.0
+margin_right = 206.0
+margin_bottom = 80.0
+size_flags_horizontal = 4
+pressed = true
+text = "Fancy Graphics"
+flat = true
+
+[node name="Back" type="Button" parent="Container"]
+margin_left = 142.0
+margin_top = 84.0
+margin_right = 177.0
+margin_bottom = 103.0
+size_flags_horizontal = 4
+text = " Back "

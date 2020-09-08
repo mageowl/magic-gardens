@@ -6,6 +6,10 @@ var player_data = {
 	"wand": null,
 };
 
+var options = {
+	"fancy_graphics": true
+}
+
 func read_player_data():
 	if (player_data.id != -1):
 		print("New player data: " + str(player_data));

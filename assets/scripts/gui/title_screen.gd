@@ -4,7 +4,6 @@ var scene;
 
 func _ready():
 	for button in $Menu/Buttons.get_children():
-		print(button.target_scene);
 		button.connect("pressed", self, "_on_Button_pressed", [button.target_scene]);
 
 func _on_Button_pressed(target_scene):

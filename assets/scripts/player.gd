@@ -25,7 +25,6 @@ func damage(value):
 		get_tree().change_scene("res://scenes/GameOver.tscn");
 
 func _process(_delta):
-
 	## Flip
 	$Sprite.flip_h = get_global_mouse_position().x < get_position().x;
 
@@ -46,6 +45,15 @@ func _process(_delta):
 	# Cast
 	if (Input.is_action_just_pressed("left_click") and not recharging and focused):
 		var node = $Hand/Wand.get_spell(0);
+		var cost = node.get_spell_data().mana_cost;
+		if ($Hand/Wand.mana - cost >= 0):
+			var canceled = node.action();
+			if !canceled:
+				$Hand/Wand.mana -= cost;
+				$Camera/CanvasLayer/PlayerGUI.set_mana($Hand/Wand.mana);
+
+	if Input.is_action_just_pressed("right_click") and not recharging and focused and $Hand/Wand.get_wand_data().spells == 2:
+		var node = $Hand/Wand.get_spell(1);
 		var cost = node.get_spell_data().mana_cost;
 		if ($Hand/Wand.mana - cost >= 0):
 			var canceled = node.action();

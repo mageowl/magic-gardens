@@ -1,54 +1,27 @@
 extends Area2D
 
-var loot = "high";
-var wands = [preload("res://assets/objects/wands/CrystalStaff.tscn"), preload("res://assets/objects/wands/LightningRod.tscn")];
-var spells = [preload("res://assets/objects/spells/MagicShot.tscn"), preload("res://assets/objects/spells/Lightning.tscn")]
+var wands = [preload("res://assets/objects/wands/CrystalStaff.tscn"), preload("res://assets/objects/wands/LightningRod.tscn"), preload("res://assets/objects/wands/Flamebreaker.tscn")];
+var spells = [preload("res://assets/objects/spells/MagicShot.tscn"), preload("res://assets/objects/spells/Lightning.tscn"), preload("res://assets/objects/spells/Fireball.tscn")]
 
-var loot_tables = {
-	"low": {
-		"items": [
-			{"type": "gold", "count": 3},
-			{"type": "gold", "count": 3},
-			{"type": "gold", "count": 3},
-			{"type": "gold", "count": 5},
-			{"type": "gold", "count": 5},
-			{"type": "gold", "count": 10},
-		]
-	},
-	"med": {
-		"items": [
-			{"type": "gold", "count": 10},
-			{"type": "gold", "count": 10},
-			{"type": "gold", "count": 10},
-			{"type": "spell", "count": 1},
-			{"type": "wand", "count": 1}
-		]
-	},
-	"high": {
-		"items": [
-			{"type": "spell", "count": 1},
-			{"type": "wand", "count": 1},
-			{"type": "spell", "count": 1},
-			{"type": "wand", "count": 1},
-			{"type": "gold", "count": 20},
-			{"type": "gold", "count": 20},
-			{"type": "gold", "count": 20},
-			{"type": "gold", "count": 30},
-			{"type": "gold", "count": 30},
-			{"type": "gold", "count": 100},
-		]
-	}
+var loot_table = {
+	"items": [
+		{"type": "spell", "count": 1},
+		{"type": "wand", "count": 1},
+		{"type": "spell", "count": 1},
+		{"type": "wand", "count": 1},
+		{"type": "gold", "count": 20},
+		{"type": "gold", "count": 20},
+		{"type": "gold", "count": 20},
+		{"type": "gold", "count": 30},
+		{"type": "gold", "count": 30},
+		{"type": "gold", "count": 100},
+	]
 }
-
-func set_data(data):
-	loot = data;
 
 func _on_player_entered(player):
 
 	if not player is Player:
 		return;
-
-	var loot_table = loot_tables[loot];
 
 	var item = loot_table.items[randi() % loot_table.items.size()];
 	var item_data = {
@@ -76,7 +49,6 @@ func _on_player_entered(player):
 
 func _on_item_gui_close(player, item_type, obj):
 	if item_type == "wand":
-		print("...")
 		get_node("/root/World/UI/WandSelectGUI").open(player.get_node("Hand/Wand"), obj);
 		get_node("/root/World/UI/WandSelectGUI").connect("wand_selected", self, "_on_wand_selected", [player, obj], CONNECT_ONESHOT);
 	elif item_type == "spell":
@@ -102,7 +74,6 @@ func _on_spell_selected(spell, player, obj):
 	queue_free();
 
 func _on_wand_selected(new_wand, player, obj):
-	print("HELLO?")
 	if new_wand == 1:
 		player.get_node("Hand/Wand").free();
 		player.get_node("Hand").add_child(obj);

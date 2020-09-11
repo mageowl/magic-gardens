@@ -1,6 +1,6 @@
 extends "res://assets/scripts/classes/spell.gd"
 
-const PROJECTILE = preload("res://assets/objects/projectiles/MagicShotProjectile.tscn");
+const PROJECTILE = preload("res://assets/objects/projectiles/MagicShot.tscn");
 
 func get_spell_data():
 	return {

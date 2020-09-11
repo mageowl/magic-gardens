@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/scripts/gui/back_button.gd" type="Script" id=3]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
@@ -40,3 +41,4 @@ margin_right = 177.0
 margin_bottom = 103.0
 size_flags_horizontal = 4
 text = " Back "
+script = ExtResource( 3 )

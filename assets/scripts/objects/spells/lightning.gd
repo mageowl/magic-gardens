@@ -1,6 +1,6 @@
 extends "res://assets/scripts/classes/spell.gd"
 
-const LIGHTNING_STRIKE = preload("res://assets/objects/projectiles/LightningStrike.tscn")
+const PROJECTILE = preload("res://assets/objects/projectiles/LightningStrike.tscn")
 var in_use = false;
 
 func get_spell_data():
@@ -13,7 +13,7 @@ func get_spell_data():
 
 func action():
 	if !in_use:
-		var obj = LIGHTNING_STRIKE.instance();
+		var obj = PROJECTILE.instance();
 		obj.position = Vector2(16, 0);
 		get_parent().get_parent().add_child(obj);
 		in_use = true;

@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/art/spells/fireball.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/objects/projectiles/fireball.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/particle/flame.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 1, 0.686275, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="Fireball" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 3 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+radial_accel = -50.0
+scale_amount = 0.5
+scale_amount_random = 0.7
+color_ramp = SubResource( 6 )
+[connection signal="body_entered" from="." to="." method="hit"]

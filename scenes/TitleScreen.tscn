@@ -56,8 +56,7 @@ stretch_mode = 3
 [node name="Buttons" type="VBoxContainer" parent="Menu"]
 margin_top = 41.0
 margin_right = 288.0
-margin_bottom = 134.0
-size_flags_vertical = 3
+margin_bottom = 98.0
 custom_constants/separation = 0
 
 [node name="Play" type="Button" parent="Menu/Buttons"]
@@ -77,12 +76,12 @@ flat = true
 script = ExtResource( 9 )
 target_scene = "res://scenes/OptionsScreen.tscn"
 
-[node name="Version" type="Label" parent="."]
-margin_left = 15.5654
-margin_top = 113.565
-margin_right = 303.565
-margin_bottom = 149.565
-size_flags_vertical = 3
+[node name="Version" type="Label" parent="Menu"]
+margin_top = 122.0
+margin_right = 288.0
+margin_bottom = 134.0
+rect_pivot_offset = Vector2( 144.589, 56.0357 )
+size_flags_vertical = 10
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.231373, 0.266667, 1 )
 text = "Version 1.1"
